@@ -117,7 +117,7 @@ if canvas_result.image_data is not None and api_key and analyze_button:
                     {"type": "text", "text": prompt_text},
                     {
                         "type": "image_url",
-                        "image_url": f"data:image/jpeg;base64,{img}",
+                        "image_url":"img.png",
                     },
                 ],
             }
