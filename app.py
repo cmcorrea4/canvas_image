@@ -13,6 +13,14 @@ import streamlit as st
 from streamlit_drawable_canvas import st_canvas
 
 
+def encode_image_to_base64(image_path):
+    try:
+        with open(image_path, "rb") as image_file:
+            encoded_image = base64.b64encode(image_file.read()).decode("utf-8")
+            return encoded_image
+    except FileNotFoundError:
+        return "Error: La imagen no se encontró en la ruta especificada."
+
 # Function to encode the image to base64
 def encode_image(image_file):
     return base64.b64encode(image_file.getvalue()).decode("utf-8")
@@ -99,8 +107,14 @@ if canvas_result.image_data is not None and api_key and analyze_button:
         input_numpy_array = np.array(canvas_result.image_data)
         input_image = Image.fromarray(input_numpy_array.astype('uint8'),'RGBA')
         input_image.save('img.png')
-        img = Image.open("img.png")
-        base64_image = encode_image("img.png")
+        #img = Image.open("img.png")
+
+        #ruta_imagen = "imagen.png"
+
+      # Codificar la imagen en base64
+        base64_image = encode_image_to_base64("img.png")
+        
+        #base64_image = encode_image("img.png")
        
         prompt_text = ("Describe what you see in the image in spanish")
     
