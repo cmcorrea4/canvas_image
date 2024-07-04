@@ -131,7 +131,6 @@ if canvas_result.image_data is not None and api_key and analyze_button:
             st.error(f"An error occurred: {e}")
 else:
     # Warnings for user action required
-    if not canvas_result.image_data:
-        st.warning("Por favor dibuja algo.")
+
     if not api_key:
         st.warning("Por favor ingresa tu API key.")
