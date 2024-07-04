@@ -23,7 +23,7 @@ def encode_image_to_base64(image_path):
 
 
 # Streamlit 
-st.set_page_config(page_title='Reconocimiento de Dígitos escritos a mano', layout='wide')
+st.set_page_config(page_title='Reconocimiento de Dígitos escritos a mano')
 st.title('Reconocimiento de Dígitos escritos a mano')
 image = Image.open('OIG4.jpg')
 st.image(image, width=350)
@@ -42,8 +42,8 @@ canvas_result = st_canvas(
     stroke_width=stroke_width,
     stroke_color=stroke_color,
     background_color=bg_color,
-    height=200,
-    width=200,
+    height=300,
+    width=400,
     key="canvas",
 )
 
