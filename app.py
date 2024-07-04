@@ -21,26 +21,12 @@ def encode_image_to_base64(image_path):
     except FileNotFoundError:
         return "Error: La imagen no se encontró en la ruta especificada."
 
-# Function to encode the image to base64
-def encode_image(image_file):
-    return base64.b64encode(image_file.getvalue()).decode("utf-8")
-
-def predictDigit(image):
-    model = tf.keras.models.load_model("model/handwritten.h5")
-    image = ImageOps.grayscale(image)
-    img = image.resize((28,28))
-    img = np.array(img, dtype='float32')
-    img = img/255
-    plt.imshow(img)
-    plt.show()
-    img = img.reshape((1,28,28,1))
-    pred= model.predict(img)
-    result = np.argmax(pred[0])
-    return result
 
 # Streamlit 
 st.set_page_config(page_title='Reconocimiento de Dígitos escritos a mano', layout='wide')
 st.title('Reconocimiento de Dígitos escritos a mano')
+image = Image.open('OIG4.jpg')
+st.image(image, width=350)
 st.subheader("Dibuja el digito en el panel  y presiona  'Predecir'")
 
 # Add canvas component
@@ -60,21 +46,6 @@ canvas_result = st_canvas(
     width=200,
     key="canvas",
 )
-
-# Add "Predict Now" button
-if st.button('Predecir'):
-    if canvas_result.image_data is not None:
-        input_numpy_array = np.array(canvas_result.image_data)
-        input_image = Image.fromarray(input_numpy_array.astype('uint8'),'RGBA')
-        input_image.save('img.png')
-        img = Image.open("img.png")
-        res = predictDigit(img)
-        st.header('El Digito es : ' + str(res))
-    else:
-        st.header('Por favor dibuja en el canvas el digito.')
-
-image = Image.open('OIG4.jpg')
-st.image(image, width=350)
 
 ke = st.text_input('Ingresa tu Clave')
 #os.environ['OPENAI_API_KEY'] = st.secrets['OPENAI_API_KEY']
@@ -107,23 +78,11 @@ if canvas_result.image_data is not None and api_key and analyze_button:
         input_numpy_array = np.array(canvas_result.image_data)
         input_image = Image.fromarray(input_numpy_array.astype('uint8'),'RGBA')
         input_image.save('img.png')
-        #img = Image.open("img.png")
-
-        #ruta_imagen = "imagen.png"
-
       # Codificar la imagen en base64
         base64_image = encode_image_to_base64("img.png")
-        
-        #base64_image = encode_image("img.png")
-       
         prompt_text = ("Describe what you see in the image in spanish")
     
-        #if show_details and additional_details:
-        #    prompt_text += (
-        #        f"\n\nAdditional Context Provided by the User:\n{additional_details}"
-        #    )
-    
-        # Create the payload for the completion request
+      # Create the payload for the completion request
         messages = [
             {
                 "role": "user",
@@ -173,6 +132,6 @@ if canvas_result.image_data is not None and api_key and analyze_button:
 else:
     # Warnings for user action required
     if not canvas_result.image_data and analyze_button:
-        st.warning("Please draw an image.")
+        st.warning("Por favor dibuja algo.")
     if not api_key:
         st.warning("Por favor ingresa tu API key.")
