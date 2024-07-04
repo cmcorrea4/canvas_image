@@ -91,7 +91,7 @@ if show_details:
 analyze_button = st.button("Analiza la imagen", type="secondary")
 
 # Check if an image has been uploaded, if the API key is available, and if the button has been pressed
-if canvas_result.image_data is not None: and api_key and analyze_button:
+if canvas_result.image_data is not None and api_key and analyze_button:
 
     with st.spinner("Analizando ..."):
         # Encode the image
