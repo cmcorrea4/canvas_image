@@ -3,20 +3,71 @@ import streamlit as st
 import base64
 from openai import OpenAI
 import openai
-from PIL import Image
+#from PIL import Image
+import tensorflow as tf
+from PIL import Image, ImageOps
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import streamlit as st
+from streamlit_drawable_canvas import st_canvas
+
 
 # Function to encode the image to base64
 def encode_image(image_file):
     return base64.b64encode(image_file.getvalue()).decode("utf-8")
 
+def predictDigit(image):
+    model = tf.keras.models.load_model("model/handwritten.h5")
+    image = ImageOps.grayscale(image)
+    img = image.resize((28,28))
+    img = np.array(img, dtype='float32')
+    img = img/255
+    plt.imshow(img)
+    plt.show()
+    img = img.reshape((1,28,28,1))
+    pred= model.predict(img)
+    result = np.argmax(pred[0])
+    return result
 
-st.set_page_config(page_title="Analisis dde imagen", layout="centered", initial_sidebar_state="collapsed")
-# Streamlit page setup
-st.title("Análisis de Imagen:🤖🏞️")
+# Streamlit 
+st.set_page_config(page_title='Reconocimiento de Dígitos escritos a mano', layout='wide')
+st.title('Reconocimiento de Dígitos escritos a mano')
+st.subheader("Dibuja el digito en el panel  y presiona  'Predecir'")
+
+# Add canvas component
+# Specify canvas parameters in application
+drawing_mode = "freedraw"
+stroke_width = st.slider('Selecciona el ancho de línea', 1, 30, 15)
+stroke_color = '#FFFFFF' # Set background color to white
+bg_color = '#000000'
+
+# Create a canvas component
+canvas_result = st_canvas(
+    fill_color="rgba(255, 165, 0, 0.3)",  # Fixed fill color with some opacity
+    stroke_width=stroke_width,
+    stroke_color=stroke_color,
+    background_color=bg_color,
+    height=200,
+    width=200,
+    key="canvas",
+)
+
+# Add "Predict Now" button
+if st.button('Predecir'):
+    if canvas_result.image_data is not None:
+        input_numpy_array = np.array(canvas_result.image_data)
+        input_image = Image.fromarray(input_numpy_array.astype('uint8'),'RGBA')
+        input_image.save('prediction/img.png')
+        img = Image.open("prediction/img.png")
+        res = predictDigit(img)
+        st.header('El Digito es : ' + str(res))
+    else:
+        st.header('Por favor dibuja en el canvas el digito.')
+
 image = Image.open('OIG4.jpg')
 st.image(image, width=350)
-with st.sidebar:
-    st.subheader("Este Agente analiza el contenido de la imagen y responde tus preguntas.")
+
 ke = st.text_input('Ingresa tu Clave')
 #os.environ['OPENAI_API_KEY'] = st.secrets['OPENAI_API_KEY']
 os.environ['OPENAI_API_KEY'] = ke
@@ -28,16 +79,6 @@ api_key = os.environ['OPENAI_API_KEY']
 # Initialize the OpenAI client with the API key
 client = OpenAI(api_key=api_key)
 
-# File uploader allows user to add their own image
-uploaded_file = st.file_uploader("Upload an image", type=["jpg", "png", "jpeg"])
-
-if uploaded_file:
-    # Display the uploaded image
-    with st.expander("Image", expanded = True):
-        st.image(uploaded_file, caption=uploaded_file.name, use_column_width=True)
-
-# Toggle for showing additional details input
-show_details = st.toggle("Adiciona detalles sobre la imagen", value=False)
 
 if show_details:
     # Text input for additional details about the image, shown only if toggle is True
@@ -50,26 +91,17 @@ if show_details:
 analyze_button = st.button("Analiza la imagen", type="secondary")
 
 # Check if an image has been uploaded, if the API key is available, and if the button has been pressed
-if uploaded_file is not None and api_key and analyze_button:
+if canvas_result.image_data is not None: and api_key and analyze_button:
 
     with st.spinner("Analizando ..."):
         # Encode the image
-        base64_image = encode_image(uploaded_file)
-    
-        # Optimized prompt for additional clarity and detail
-        #prompt_text = (
-        #    "You are a highly knowledgeable scientific image analysis expert. "
-        #   "Your task is to examine the following image in detail. "
-        #    "Provide a comprehensive, factual, and scientifically accurate explanation of what the image depicts. "
-        #    "Highlight key elements and their significance, and present your analysis in clear, well-structured markdown format. "
-        #    "If applicable, include any relevant scientific terminology to enhance the explanation. "
-        #    "Assume the reader has a basic understanding of scientific concepts."
-        #    "Create a detailed image caption in bold explaining in short."
-        #    "The data is about electrical energy consumption and demand."
-        #    "Write when occurs the major and minor consumption, date and hour when this be possible."
-        #    "Explain always in spanish."
-        #)
-
+       
+        input_numpy_array = np.array(canvas_result.image_data)
+        input_image = Image.fromarray(input_numpy_array.astype('uint8'),'RGBA')
+        input_image.save('img.png')
+        img = Image.open("img.png")
+        base64_image = encode_image(img)
+       
         prompt_text = ("Describe what you see in the image in spanish")
     
         if show_details and additional_details:
@@ -127,6 +159,6 @@ if uploaded_file is not None and api_key and analyze_button:
 else:
     # Warnings for user action required
     if not uploaded_file and analyze_button:
-        st.warning("Please upload an image.")
+        st.warning("Please draw an image.")
     if not api_key:
         st.warning("Por favor ingresa tu API key.")
