@@ -104,10 +104,10 @@ if canvas_result.image_data is not None and api_key and analyze_button:
        
         prompt_text = ("Describe what you see in the image in spanish")
     
-        if show_details and additional_details:
-            prompt_text += (
-                f"\n\nAdditional Context Provided by the User:\n{additional_details}"
-            )
+        #if show_details and additional_details:
+        #    prompt_text += (
+        #        f"\n\nAdditional Context Provided by the User:\n{additional_details}"
+        #    )
     
         # Create the payload for the completion request
         messages = [
