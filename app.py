@@ -100,7 +100,7 @@ if canvas_result.image_data is not None and api_key and analyze_button:
         input_image = Image.fromarray(input_numpy_array.astype('uint8'),'RGBA')
         input_image.save('img.png')
         img = Image.open("img.png")
-        #base64_image = encode_image(img)
+        #base64_image = encode_image(input_image)
        
         prompt_text = ("Describe what you see in the image in spanish")
     
@@ -117,7 +117,7 @@ if canvas_result.image_data is not None and api_key and analyze_button:
                     {"type": "text", "text": prompt_text},
                     {
                         "type": "image_url",
-                        "image_url":"img.png",
+                        "image_url":f"data:image/png;base64,{base64_image}",
                     },
                 ],
             }
@@ -137,7 +137,7 @@ if canvas_result.image_data is not None and api_key and analyze_button:
                      {
                        "type": "image_url",
                        "image_url": {
-                         "url": "img.png",
+                         "url": f"data:image/png;base64,{base64_image}",
                        },
                      },
                    ],
