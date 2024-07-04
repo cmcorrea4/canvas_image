@@ -100,7 +100,7 @@ if canvas_result.image_data is not None and api_key and analyze_button:
         input_image = Image.fromarray(input_numpy_array.astype('uint8'),'RGBA')
         input_image.save('img.png')
         img = Image.open("img.png")
-        #base64_image = encode_image(input_image)
+        base64_image = encode_image(input_image)
        
         prompt_text = ("Describe what you see in the image in spanish")
     
