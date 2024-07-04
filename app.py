@@ -23,11 +23,11 @@ def encode_image_to_base64(image_path):
 
 
 # Streamlit 
-st.set_page_config(page_title='Reconocimiento de Dígitos escritos a mano')
-st.title('Reconocimiento de Dígitos escritos a mano')
+st.set_page_config(page_title='Reconocimiento de bocetos de Dibujos')
+st.title('Reconocimiento de bocetos de Dibujos')
 image = Image.open('OIG4.jpg')
 st.image(image, width=350)
-st.subheader("Dibuja el digito en el panel  y presiona  'Predecir'")
+st.subheader("Dibuja el boceto en el panel  y presiona  'Analizar imagén'")
 
 # Add canvas component
 # Specify canvas parameters in application
