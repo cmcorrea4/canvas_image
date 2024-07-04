@@ -80,12 +80,12 @@ api_key = os.environ['OPENAI_API_KEY']
 client = OpenAI(api_key=api_key)
 
 
-if show_details:
+#if show_details:
     # Text input for additional details about the image, shown only if toggle is True
-    additional_details = st.text_area(
-        "Adiciona contexto de la imagen aqui:",
-        disabled=not show_details
-    )
+#    additional_details = st.text_area(
+#       "Adiciona contexto de la imagen aqui:",
+#        disabled=not show_details
+#    )
 
 # Button to trigger the analysis
 analyze_button = st.button("Analiza la imagen", type="secondary")
