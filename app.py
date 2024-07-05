@@ -25,7 +25,7 @@ def encode_image_to_base64(image_path):
 # Streamlit 
 st.set_page_config(page_title='Reconocimiento de bocetos de Dibujos')
 st.title('Reconocimiento de bocetos de Dibujos')
-image = Image.open('OIG4.jpg')
+image = Image.open('OIG9.jpg')
 st.image(image, width=350)
 st.subheader("Dibuja el boceto en el panel  y presiona  'Analizar imagén'")
 
