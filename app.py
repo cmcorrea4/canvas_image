@@ -26,11 +26,11 @@ def encode_image_to_base64(image_path):
 st.set_page_config(page_title='Reconocimiento de bocetos de Dibujos')
 st.title('Reconocimiento de bocetos de Dibujos')
 image = Image.open('OIG9.jpg')
-st.image(image, width=350)
+st.image(image, width=350) 
 with st.sidebar:
     st.subheader("Acerca de:")
     st.subheader("En esta aplicación veremos la capacidad que ahora tiene una máquina de interpretar un boceto")
-st.subheader("Dibuja el boceto en el panel  y presiona  'Analizar imagén'")
+st.subheader("Dibuja el boceto en el panel  y presiona el botón para analizarla")
 
 # Add canvas component
 # Specify canvas parameters in application
