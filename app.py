@@ -67,10 +67,10 @@ client = OpenAI(api_key=api_key)
 
 #if show_details:
     # Text input for additional details about the image, shown only if toggle is True
-#    additional_details = st.text_area(
-#       "Adiciona contexto de la imagen aqui:",
-#        disabled=not show_details
-#    )
+   additional_details = st.text_area(
+       "Adiciona contexto de la imagen aqui:",
+        disabled=not show_details
+    )
 
 # Button to trigger the analysis
 analyze_button = st.button("Analiza la imagen", type="secondary")
@@ -86,7 +86,7 @@ if canvas_result.image_data is not None and api_key and analyze_button:
         input_image.save('img.png')
       # Codificar la imagen en base64
         base64_image = encode_image_to_base64("img.png")
-        prompt_text = ("Describe what you see in the image in spanish, omit the background and image colors")
+        prompt_text = (f"Describe what you see in the image in spanish,{additional_details}")
     
       # Create the payload for the completion request
         messages = [
