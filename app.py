@@ -23,8 +23,8 @@ def encode_image_to_base64(image_path):
 
 
 # Streamlit 
-st.set_page_config(page_title='Reconocimiento de bocetos de Dibujos')
-st.title('Reconocimiento de bocetos de Dibujos')
+st.set_page_config(page_title='Tablero Inteligente')
+st.title('Tablero Inteligente')
 image = Image.open('OIG9.jpg')
 st.image(image, width=350) 
 with st.sidebar:
