@@ -104,7 +104,7 @@ if canvas_result.image_data is not None and api_key and analyze_button:
             full_response = ""
             message_placeholder = st.empty()
             response = openai.chat.completions.create(
-              model= "gpt-4o",
+              model= "gpt-4o mini",
               messages=[
                 {
                    "role": "user",
