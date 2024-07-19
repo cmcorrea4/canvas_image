@@ -53,7 +53,7 @@ canvas_result = st_canvas(
     key="canvas",
 )
 
-ke = st.text_input('Ingresa tu Clave')
+ke = st.text_*//input('Ingresa tu Clave')
 #os.environ['OPENAI_API_KEY'] = st.secrets['OPENAI_API_KEY']
 os.environ['OPENAI_API_KEY'] = ke
 
@@ -104,7 +104,7 @@ if canvas_result.image_data is not None and api_key and analyze_button:
             full_response = ""
             message_placeholder = st.empty()
             response = openai.chat.completions.create(
-              model= "gpt-4o",
+              model= "gpt-4o mini",
               messages=[
                 {
                    "role": "user",
