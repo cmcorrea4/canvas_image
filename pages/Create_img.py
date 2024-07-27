@@ -19,9 +19,9 @@ client = OpenAI(api_key=api_key)
 prompt_= st.text_area("Que quieres dibujar?")
 if prompt_ :
  response = client.images.generate(
-   model="dall-e-3",
+   model="dall-e-2",
    prompt=prompt_,
-   size="1024x1024",
+   size="256x256",
    quality="standard",
    n=1,
  )
