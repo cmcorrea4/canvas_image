@@ -16,12 +16,14 @@ api_key = os.environ['OPENAI_API_KEY']
 # Initialize the OpenAI client with the API key
 client = OpenAI(api_key=api_key)
 
+image_size = st.selectbox("Selecciona el tamaño de la imagen:", ["256x256", "512x512", "1024x1024"])
+modelo=      st.selectbox("Selecciona el modelo:", ["dall-e-2", "dall-e-3"])
 prompt_= st.text_area("Que quieres dibujar?")
 if prompt_ :
  response = client.images.generate(
-   model="dall-e-2",
+   model=modelo,
    prompt=prompt_,
-   size="256x256",
+   size=image_size ,
    quality="standard",
    n=1,
  )
