@@ -5,9 +5,7 @@ import os
 
 
 st.title("Generación de Imágenes")
-ke = st.text_input('Ingresa tu Clave')
-#os.environ['OPENAI_API_KEY'] = st.secrets['OPENAI_API_KEY']
-os.environ['OPENAI_API_KEY'] = ke
+
 
 
 # Retrieve the OpenAI API Key from secrets
@@ -19,7 +17,10 @@ with st.sidebar:
   image_size = st.selectbox("Selecciona el tamaño de la imagen:", ["256x256", "512x512", "1024x1024"])
   modelo=      st.selectbox("Selecciona el modelo:", ["dall-e-2", "dall-e-3"])
   calidad=     st.selectbox("Selecciona el Calidad:", ["HD", "standard"])
-  prompt_= st.text_area("Que quieres dibujar?")
+  ke = st.text_input('Ingresa tu Clave')
+  os.environ['OPENAI_API_KEY'] = ke
+
+prompt_= st.text_area("Que quieres dibujar?")
 if prompt_ :
  response = client.images.generate(
    model=modelo,
