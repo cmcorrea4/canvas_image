@@ -1,12 +1,20 @@
 import streamlit as st
-import PIL
+from PIL import Image 
 from openai import OpenAI
+import os
+
 
 st.title("Generación de Imágenes")
+ke = st.text_input('Ingresa tu Clave')
+#os.environ['OPENAI_API_KEY'] = st.secrets['OPENAI_API_KEY']
+os.environ['OPENAI_API_KEY'] = ke
 
 
+# Retrieve the OpenAI API Key from secrets
+api_key = os.environ['OPENAI_API_KEY']
 
-client = OpenAI()
+# Initialize the OpenAI client with the API key
+client = OpenAI(api_key=api_key)
 
 prompt_= st.text_area("Que quieres dibujar?")
 if prompt_ :
