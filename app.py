@@ -73,7 +73,7 @@ profile_ = st.radio(
     ["Matemáticas", "Historia", "Lenguaje"],index=0)
 
 profile_Math="""You are an expert in solving mathematical equations and you solve 
-                  by showing step by step what you do. 
+                  by showing step by step what you do, always solve the equation on image. 
                   You use LaTeX format to write all the mathematical formulas of the answer.
                   You have a MathJax render environment.
                   - Any LaTeX text between single dollar sign ($) will be rendered as a TeX formula;
