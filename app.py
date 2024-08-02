@@ -68,7 +68,7 @@ client = OpenAI(api_key=api_key)
 #if show_details:
     # Text input for additional details about the image, shown only if toggle is True
 additional_details = st.text_area("Adiciona contexto de la imagen aqui:")
-Profile = st.radio(
+profile_ = st.radio(
     "Profesor",
     ["Matemáticas", "Historia", "Lenguaje"],
     index=None,
@@ -85,7 +85,7 @@ profile_Math="""You are an expert in solving mathematical equations and you solv
                   Example: $ \int (x^2 ) is output ∫ x²dx
                   Example: $ ^\circ is output °
                 """
-if Profile == "Matemáticas"
+if Profile_ == "Matemáticas"
    Expert= profile_Math            
 # Button to trigger the analysis
 analyze_button = st.button("Analiza la imagen", type="secondary")
