@@ -83,7 +83,7 @@ profile_Math="""You are an expert in solving mathematical equations and you solv
                   Example: $ \int (x^2 ) is output ∫ x²dx
                   Example: $ ^\circ is output °
                 """
-if Profile_ == "Matemáticas":
+if profile_ == "Matemáticas":
    Expert= profile_Math            
 # Button to trigger the analysis
 analyze_button = st.button("Analiza la imagen", type="secondary")
