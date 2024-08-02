@@ -68,7 +68,25 @@ client = OpenAI(api_key=api_key)
 #if show_details:
     # Text input for additional details about the image, shown only if toggle is True
 additional_details = st.text_area("Adiciona contexto de la imagen aqui:")
+Profile = st.radio(
+    "Profesor",
+    ["Matemáticas", "Historia", "Lenguaje"],
+    index=None,
+)
 
+profile_Math="""You are an expert in solving mathematical equations and you solve 
+                  by showing step by step what you do. 
+                  You use LaTeX format to write all the mathematical formulas of the answer.
+                  You have a MathJax render environment.
+                  - Any LaTeX text between single dollar sign ($) will be rendered as a TeX formula;
+                  - Use $(tex_formula)$ in-line delimiters to display equations instead of backslash;
+                  - The render environment only uses $ (single dollarsign) as a container delimiter, never output $$.
+                  Example: $x^2 + 3x$ is output for "x² + 3x" to appear as TeX.`
+                  Example: $ \int (x^2 ) is output ∫ x²dx
+                  Example: $ ^\circ is output °
+                """
+if Profile == "Matemáticas"
+   Expert= profile_Math            
 # Button to trigger the analysis
 analyze_button = st.button("Analiza la imagen", type="secondary")
 
@@ -83,7 +101,7 @@ if canvas_result.image_data is not None and api_key and analyze_button:
         input_image.save('img.png')
       # Codificar la imagen en base64
         base64_image = encode_image_to_base64("img.png")
-        prompt_text = (f"Describe what you see in the image in spanish,{additional_details}")
+        prompt_text = (f"{Expert},Describe what you see in the image in spanish,{additional_details}")
     
       # Create the payload for the completion request
         messages = [
