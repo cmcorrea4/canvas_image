@@ -36,10 +36,10 @@ st.subheader("Dibuja el boceto en el panel  y presiona el botón para analizarla
 
 # Specify canvas parameters in application
 drawing_mode = "freedraw"
-stroke_width = st.slider('Selecciona el ancho de línea', 1, 30, 15)
+stroke_width = st.slider('Selecciona el ancho de línea', 1, 30, 5)
 #stroke_color = '#FFFFFF' # Set background color to white
 #bg_color = '#000000'
-stroke_color = st.color_picker("Elige un Color", "#00f900")
+stroke_color = st.color_picker("Elige un Color", "#000000")
 bg_color = '#FFFFFF'
 
 # Create a canvas component
@@ -82,6 +82,8 @@ profile_Math="""You are an expert in solving mathematical equations and you solv
                   Example: $x^2 + 3x$ is output for "x² + 3x" to appear as TeX.`
                   Example: $ \int (x^2 ) is output ∫ x²dx
                   Example: $ ^\circ is output °
+                  Example:$  \frac is output /
+                  Example:$ \(x^2 ) is output x²
                 """
 if profile_ == "Matemáticas":
    Expert= profile_Math            
