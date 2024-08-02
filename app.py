@@ -84,6 +84,7 @@ profile_Math="""You are an expert in solving mathematical equations and you solv
                   Example: $ ^\circ is output °
                   Example:$  \frac is output /
                   Example:$ \(x^2 ) is output x²
+                  Example :$ \sqrt is output √
                 """
 if profile_ == "Matemáticas":
    Expert= profile_Math            
