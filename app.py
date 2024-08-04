@@ -70,7 +70,7 @@ client = OpenAI(api_key=api_key)
 additional_details = st.text_area("Adiciona contexto de la imagen aqui:")
 profile_ = st.radio(
     "Profesor",
-    ["Matemáticas", "Historia", "Lenguaje"],index=0)
+    ["Matemáticas", "Historia", "Lenguaje"],index=None)
 
 profile_Math="""You are an expert in solving mathematical equations and you solve 
                   by showing step by step what you do, always solve the equation on image. 
