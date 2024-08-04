@@ -70,7 +70,7 @@ client = OpenAI(api_key=api_key)
 additional_details = st.text_area("Adiciona contexto de la imagen aqui:")
 profile_ = st.radio(
     "Profesor",
-    ["Matemáticas", "Historia", "Lenguaje"],index=None)
+    ["Matemáticas", "Historia", "Programación"],index=None)
 
 profile_Math="""You are an expert in solving mathematical equations and you solve 
                   by showing step by step what you do, always solve the equation on image. 
@@ -96,7 +96,9 @@ profile_Prog=""" Eres un experto en programaciòn, describe lo que realiza el c�
 if profile_ == "Matemáticas":
    Expert= profile_Math  
 if profile_ == "Historia":
-   Expert= profile_Hist    
+   Expert= profile_Hist
+if profile_ == "Programación":
+   Expert= profile_Prog    
 # Button to trigger the analysis
 analyze_button = st.button("Analiza la imagen", type="secondary")
 
