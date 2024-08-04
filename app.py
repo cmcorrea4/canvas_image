@@ -89,7 +89,7 @@ profile_Math="""You are an expert in solving mathematical equations and you solv
 profile_Hist=""" Eres un experto en contar historias infantiles, crea una breve historia a partir de la imagen
                  , la historia debe ser breve.
                  """ 
-profile_Prog=""" Eres un experto en programaciòn, describe lo que realiza el código que aparece en la imagen y si 
+profile_Prog=""" Eres un experto en programación, describe lo que realiza el código que aparece en la imagen y si 
                  el código tiene mala sintaxis o está equivocado corrígelo.
                  """ 
 
