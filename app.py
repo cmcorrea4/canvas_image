@@ -86,8 +86,15 @@ profile_Math="""You are an expert in solving mathematical equations and you solv
                   Example:$ \(x^2 ) is output x²
                   Example :$ \sqrt is output √
                 """
+profile_Hist=""" Eres un experto en contar historias infantiles, crea una breve historia a partir de la imagen
+                 , la historia debe ser breve.
+                 """ 
+
+
 if profile_ == "Matemáticas":
-   Expert= profile_Math            
+   Expert= profile_Math  
+if profile_ == "Historia":
+   Expert= profile_Hist    
 # Button to trigger the analysis
 analyze_button = st.button("Analiza la imagen", type="secondary")
 
