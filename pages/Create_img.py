@@ -5,8 +5,8 @@ import os
 
 
 st.title("Generación de Imágenes")
-if 'mi_respuesta' not in st.session_state:
-    st.session_state.mi_respuesta = None
+#if 'mi_respuesta' not in st.session_state:
+#    st.session_state.mi_respuesta = None
 
 
 # Retrieve the OpenAI API Key from secrets
@@ -21,7 +21,7 @@ with st.sidebar:
   ke = st.text_input('Ingresa tu Clave')
   os.environ['OPENAI_API_KEY'] = ke
 
-prompt_= st.text_area("Que quieres dibujar?",session_state.mi_respuesta)
+prompt_= st.text_area("Que quieres dibujar?",st.session_state.mi_respuesta)
 if prompt_ :
  response = client.images.generate(
    model=modelo,
