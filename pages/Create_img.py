@@ -5,7 +5,8 @@ import os
 
 
 st.title("Generación de Imágenes")
-
+if 'mi_respuesta' not in st.session_state:
+    st.session_state.mi_respuesta = None
 
 
 # Retrieve the OpenAI API Key from secrets
