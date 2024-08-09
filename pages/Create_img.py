@@ -22,15 +22,9 @@ with st.sidebar:
   os.environ['OPENAI_API_KEY'] = ke
 
 prompt_= st.text_area("Que quieres dibujar?")
-if prompt_ :
-  response = client.images.generate(
-    model=modelo,
-    prompt=prompt_,
-    size=image_size ,
-    quality="standard",
-    n=1,
-  )
+if prompt_ and os.environ['OPENAI_API_KEY'] :
+ response = client.images.generate(model=modelo,prompt=prompt_,size=image_size ,quality="standard", n=1,)
 
-image_url = response.data[0].url
-st.image(image_url, caption="Imagen Generada")
+ image_url = response.data[0].url
+ st.image(image_url, caption="Imagen Generada")
 
