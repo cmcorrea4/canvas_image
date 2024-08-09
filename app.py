@@ -12,7 +12,9 @@ import matplotlib.pyplot as plt
 import streamlit as st
 from streamlit_drawable_canvas import st_canvas
 
-
+if 'mi_respuesta' not in st.session_state:
+    st.session_state.mi_respuesta = None
+    
 def encode_image_to_base64(image_path):
     try:
         with open(image_path, "rb") as image_file:
@@ -157,6 +159,7 @@ if canvas_result.image_data is not None and api_key and analyze_button:
                     message_placeholder.markdown(full_response + "▌")
             # Final update to placeholder after the stream ends
             message_placeholder.markdown(full_response)
+            st.session_state.mi_respuesta=full_response 
     
             # Display the response in the app
             #st.write(response.choices[0])
