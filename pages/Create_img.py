@@ -20,7 +20,7 @@ with st.sidebar:
   ke = st.text_input('Ingresa tu Clave')
   os.environ['OPENAI_API_KEY'] = ke
 
-prompt_= st.text_area("Que quieres dibujar?")
+prompt_= st.text_area("Que quieres dibujar?",session_state.mi_respuesta)
 if prompt_ :
  response = client.images.generate(
    model=modelo,
