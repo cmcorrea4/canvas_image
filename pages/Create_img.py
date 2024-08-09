@@ -17,11 +17,11 @@ client = OpenAI(api_key=api_key)
 with st.sidebar:
   image_size = st.selectbox("Selecciona el tamaño de la imagen:", ["256x256", "512x512", "1024x1024"])
   modelo=      st.selectbox("Selecciona el modelo:", ["dall-e-2", "dall-e-3"])
-  calidad=     st.selectbox("Selecciona el Calidad:", ["standard", "HD"])
+  calidad=     st.selectbox("Selecciona el Calidad:", ["Standard", "HD"])
   ke = st.text_input('Ingresa tu Clave')
   os.environ['OPENAI_API_KEY'] = ke
 
-prompt_= st.text_area("Que quieres dibujar?",f"crea una imagen mejorada realista solo del primer párrafo de la siguiente descripción:{st.session_state.mi_respuesta}")
+prompt_= st.text_area("Que quieres dibujar?",f"crea una imagen mejorada realista con la siguiente descripción:{st.session_state.mi_respuesta}")
 if prompt_ and os.environ['OPENAI_API_KEY'] :
  response = client.images.generate(model=modelo,prompt=prompt_,size=image_size ,quality="standard", n=1,)
 
