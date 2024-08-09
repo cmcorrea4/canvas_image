@@ -20,6 +20,7 @@ with st.sidebar:
   calidad=     st.selectbox("Selecciona el Calidad:", ["Standard", "HD"])
   ke = st.text_input('Ingresa tu Clave')
   os.environ['OPENAI_API_KEY'] = ke
+  
 
 prompt_= st.text_area("Que quieres dibujar?",f"crea una imagen mejorada realista con la siguiente descripción:{st.session_state.mi_respuesta}")
 if prompt_ and os.environ['OPENAI_API_KEY'] :
