@@ -20,9 +20,9 @@ with st.sidebar:
   calidad=     st.selectbox("Selecciona el Calidad:", ["HD", "standard"])
   ke = st.text_input('Ingresa tu Clave')
   os.environ['OPENAI_API_KEY'] = ke
-try:
- prompt_= st.text_area("Que quieres dibujar?",st.session_state.mi_respuesta)
- if prompt_ :
+
+prompt_= st.text_area("Que quieres dibujar?",st.session_state.mi_respuesta)
+if prompt_ :
   response = client.images.generate(
     model=modelo,
     prompt=prompt_,
@@ -31,7 +31,6 @@ try:
     n=1,
   )
 
- image_url = response.data[0].url
- st.image(image_url, caption="Imagen Generada")
-except:
- pass
+image_url = response.data[0].url
+st.image(image_url, caption="Imagen Generada")
+
