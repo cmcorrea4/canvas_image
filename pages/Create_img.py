@@ -17,7 +17,7 @@ client = OpenAI(api_key=api_key)
 with st.sidebar:
   image_size = st.selectbox("Selecciona el tamaño de la imagen:", ["256x256", "512x512", "1024x1024"])
   modelo=      st.selectbox("Selecciona el modelo:", ["dall-e-2", "dall-e-3"])
-  calidad=     st.selectbox("Selecciona el Calidad:", ["HD", "standard"])
+  calidad=     st.selectbox("Selecciona el Calidad:", ["standard", "HD"])
   ke = st.text_input('Ingresa tu Clave')
   os.environ['OPENAI_API_KEY'] = ke
 
