@@ -71,7 +71,7 @@ client = OpenAI(api_key=api_key)
     # Text input for additional details about the image, shown only if toggle is True
 additional_details = st.text_area("Adiciona contexto de la imagen aqui:")
 profile_ = st.radio(
-    "Profesor",
+    "Selecciona si quieres alguna experticia",
     ["Matemáticas", "Historia", "Programación"],index=None)
 
 profile_Math="""You are an expert in solving mathematical equations and you solve 
@@ -117,7 +117,8 @@ if canvas_result.image_data is not None and api_key and analyze_button:
         input_image.save('img.png')
       # Codificar la imagen en base64
         base64_image = encode_image_to_base64("img.png")
-        prompt_text = (f"{Expert},Describe what you see in the image in spanish,{additional_details}")
+        prompt_text = (f"{Expert},D
+Do not mention that it is a simple drawing, describe well all the objects that appear in the image in spanish,{additional_details}")
     
       # Create the payload for the completion request
         messages = [
