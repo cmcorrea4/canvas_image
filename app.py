@@ -117,7 +117,8 @@ if canvas_result.image_data is not None and api_key and analyze_button:
         input_image.save('img.png')
       # Codificar la imagen en base64
         base64_image = encode_image_to_base64("img.png")
-        prompt_text = (f"{Expert},Do not mention that it is a simple drawing, describe briefly all the objects that appear in the image in spanish,{additional_details}")
+        #Do not mention that it is a simple drawing, describe briefly all the objects that appear in the image in spanish
+        prompt_text = (f"{Expert},describe in spanish briefly the image,{additional_details}")
     
       # Create the payload for the completion request
         messages = [
