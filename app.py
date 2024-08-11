@@ -101,8 +101,8 @@ if profile_ == "Historia":
    Expert= profile_Hist
 if profile_ == "Programación":
    Expert= profile_Prog 
-else :
-   Expert= " "
+#else :
+#   Expert= " "
 # Button to trigger the analysis
 analyze_button = st.button("Analiza la imagen", type="secondary")
 
