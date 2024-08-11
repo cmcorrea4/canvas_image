@@ -72,7 +72,7 @@ client = OpenAI(api_key=api_key)
 additional_details = st.text_area("Adiciona contexto de la imagen aqui:")
 profile_ = st.radio(
     "Selecciona si quieres alguna experticia",
-    ["Matemáticas", "Historia", "Programación"],index=None)
+    ["Matemáticas", "Historia", "Programación","Mejoramiento de imágenes"],index=None)
 
 profile_Math="""You are an expert in solving mathematical equations and you solve 
                   by showing step by step what you do, always solve the equation on image. 
@@ -95,12 +95,17 @@ profile_Prog=""" Eres un experto en programación, describe lo que realiza el c�
                  el código tiene mala sintaxis o está equivocado corrígelo.
                  """ 
 
+profile_imgenh =""" Do not mention that it is a simple drawing, describe briefly all the objects that appear in the image in spanish
+                 """ 
+
 if profile_ == "Matemáticas":
    Expert= profile_Math  
 if profile_ == "Historia":
    Expert= profile_Hist
 if profile_ == "Programación":
    Expert= profile_Prog 
+if profile_ == "Mejoramiento de imágenes":
+   Expert= profile_imgenh      
 #else :
 #   Expert= " "
 # Button to trigger the analysis
@@ -162,7 +167,8 @@ if canvas_result.image_data is not None and api_key and analyze_button:
                     message_placeholder.markdown(full_response + "▌")
             # Final update to placeholder after the stream ends
             message_placeholder.markdown(full_response)
-            st.session_state.mi_respuesta= response.choices[0].message.content #full_response 
+            if Expert= profile_imgenh:
+               st.session_state.mi_respuesta= response.choices[0].message.content #full_response 
     
             # Display the response in the app
             #st.write(response.choices[0])
