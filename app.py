@@ -167,7 +167,7 @@ if canvas_result.image_data is not None and api_key and analyze_button:
                     message_placeholder.markdown(full_response + "▌")
             # Final update to placeholder after the stream ends
             message_placeholder.markdown(full_response)
-            if Expert= profile_imgenh:
+            if Expert== profile_imgenh:
                st.session_state.mi_respuesta= response.choices[0].message.content #full_response 
     
             # Display the response in the app
