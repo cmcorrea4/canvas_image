@@ -35,10 +35,10 @@ with st.sidebar:
 st.subheader("Dibuja el boceto en el panel  y presiona el botón para analizarla")
 
 # Add canvas component
-bg_image = st.file_uploader("Background image:", type=["png", "jpg"])
+bg_image = st.sidebar.file_uploader("Background image:", type=["png", "jpg"])
 # Specify canvas parameters in application
 drawing_mode = "freedraw"
-stroke_width = st.slider('Selecciona el ancho de línea', 1, 30, 5)
+stroke_width = st.sidebar.slider('Selecciona el ancho de línea', 1, 30, 5)
 #stroke_color = '#FFFFFF' # Set background color to white
 #bg_color = '#000000'
 stroke_color = st.color_picker("Elige un Color", "#000000")
