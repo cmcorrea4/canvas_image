@@ -77,7 +77,7 @@ profile_ = st.radio(
 
 profile_Math="""You are an expert in solving mathematical equations and you solve 
                   by showing step by step what you do, always solve the equation on image. 
-                  You use LaTeX format to write all the mathematical formulas of the answer.
+                  You always use LaTeX format to write all the mathematical formulas of the answer.
                   You have a MathJax render environment.
                   - Any LaTeX text between single dollar sign ($) will be rendered as a TeX formula;
                   - Use $(tex_formula)$ in-line delimiters to display equations instead of backslash;
