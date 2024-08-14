@@ -43,6 +43,7 @@ stroke_width = st.slider('Selecciona el ancho de línea', 1, 30, 5)
 #bg_color = '#000000'
 stroke_color = st.color_picker("Elige un Color", "#000000")
 bg_color = '#FFFFFF'
+realtime_update = st.sidebar.checkbox("Update in realtime", True)
 
 # Create a canvas component
 canvas_result = st_canvas(
@@ -51,6 +52,7 @@ canvas_result = st_canvas(
     stroke_color=stroke_color,
     background_color=bg_color,
     background_image=Image.open(bg_image) if bg_image else None,
+    update_streamlit=realtime_update,
     height=300,
     width=500,
     key="canvas",
