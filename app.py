@@ -118,9 +118,9 @@ if canvas_result.image_data is not None and api_key and analyze_button:
 
     with st.spinner("Analizando ..."):
         # Encode the image
-         if bg_image :
+        if bg_image :
            input_numpy_array=Image.open(bg_image)
-         else:
+        else:
            input_numpy_array = np.array(canvas_result.image_data)
         #input_numpy_array = np.array(canvas_result.image_data)
         input_image = Image.fromarray(input_numpy_array.astype('uint8'),'RGBA')
