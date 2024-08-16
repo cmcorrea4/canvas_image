@@ -89,6 +89,7 @@ profile_Math="""You are an expert in solving mathematical equations and you solv
                   Example:$  \frac is output /
                   Example:$ \(x^2 ) is output x²
                   Example :$ \sqrt is output √
+                  Example :$ \cdot is ⋅
                 """
 profile_Hist=""" Eres un experto en contar historias infantiles, crea una breve historia a partir de la imagen
                  , la historia debe ser breve.
