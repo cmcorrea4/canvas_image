@@ -165,7 +165,7 @@ if canvas_result.image_data is not None and api_key and analyze_button:
                    ],
                   }
                 ],
-              max_tokens=300,
+              max_tokens=1000,
               )
             #response.choices[0].message.content
             if response.choices[0].message.content is not None:
