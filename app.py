@@ -45,7 +45,7 @@ stroke_color = st.color_picker("Color de Trazo", "#000000")
 bg_color = '#FFFFFF'
 #realtime_update = st.sidebar.checkbox("Update in realtime", True)
 drawing_mode = st.sidebar.selectbox(
-    "Drawing tool:",
+    "Herramienta de dibujo:",
     ("freedraw", "line", "rect", "circle", "transform", "polygon", "point"),
   )
 
