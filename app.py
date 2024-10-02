@@ -53,7 +53,7 @@ canvas_result = st_canvas(
     background_color=bg_color,
     background_image=Image.open(bg_image) if bg_image else None,
     height=300,
-    width=500,
+    width=450,
     key="canvas",
 )
 
