@@ -44,6 +44,10 @@ stroke_width = st.sidebar.slider('Selecciona el ancho de línea', 1, 30, 5)
 stroke_color = st.color_picker("Elige un Color", "#000000")
 bg_color = '#FFFFFF'
 #realtime_update = st.sidebar.checkbox("Update in realtime", True)
+drawing_mode = st.sidebar.selectbox(
+    "Drawing tool:",
+    ("freedraw", "line", "rect", "circle", "transform", "polygon", "point"),
+  )
 
 # Create a canvas component
 canvas_result = st_canvas(
@@ -54,6 +58,7 @@ canvas_result = st_canvas(
     background_image=Image.open(bg_image) if bg_image else None,
     height=300,
     width=400,
+    drawing_mode=drawing_mode,
     key="canvas",
 )
 
