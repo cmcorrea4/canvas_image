@@ -33,17 +33,20 @@ with st.sidebar:
     st.subheader("Acerca de:")
     st.subheader("En esta aplicación veremos la capacidad que ahora tiene una máquina de interpretar un boceto")
     stroke_color = st.color_picker("Color de Trazo", "#000000")
+    bg_image = st.sidebar.file_uploader("Cargar Imagen:", type=["png", "jpg"])
+    stroke_width = st.sidebar.slider('Selecciona el ancho de línea', 1, 30, 5)
+    bg_color = '#FFFFFF'
+    
 st.subheader("Dibuja el boceto en el panel  y presiona el botón para analizarla")
 
 # Add canvas component
-bg_image = st.sidebar.file_uploader("Cargar Imagen:", type=["png", "jpg"])
 # Specify canvas parameters in application
 #drawing_mode = "freedraw"
-stroke_width = st.sidebar.slider('Selecciona el ancho de línea', 1, 30, 5)
+
 #stroke_color = '#FFFFFF' # Set background color to white
 #bg_color = '#000000'
 
-bg_color = '#FFFFFF'
+
 #realtime_update = st.sidebar.checkbox("Update in realtime", True)
 drawing_mode = st.sidebar.selectbox(
     "Herramienta de dibujo:",
