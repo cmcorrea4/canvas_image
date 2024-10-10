@@ -34,18 +34,12 @@ with st.sidebar:
     st.subheader("En esta aplicación veremos la capacidad que ahora tiene una máquina de interpretar un boceto")
     bg_image = st.sidebar.file_uploader("Cargar Imagen:", type=["png", "jpg"])
     stroke_color = st.color_picker("Color de Trazo", "#000000",key="1")
-    
-    stroke_width = st.sidebar.slider('Selecciona el ancho de línea', 1, 30, 5)
-    bg_color = st.color_picker("Color de Fondo", "#FFFFFF",key="2")#'#FFFFFF'
+    bg_color = st.color_picker("Color de Fondo", "#FFFFFF",key="2")
+    stroke_width = st.sidebar.slider('Selecciona el ancho de línea', 1, 30, 5,key="A")
+    H= st.sidebar.slider('Selecciona la altura del tablero ', 1, 400, 10,key="B")
+    W= st.sidebar.slider('Selecciona el ancho del tablero', 1, 400, 10,key="C")
     
 st.subheader("Dibuja el boceto en el panel  y presiona el botón para analizarla")
-
-# Add canvas component
-# Specify canvas parameters in application
-#drawing_mode = "freedraw"
-
-#stroke_color = '#FFFFFF' # Set background color to white
-#bg_color = '#000000'
 
 
 #realtime_update = st.sidebar.checkbox("Update in realtime", True)
