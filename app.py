@@ -41,14 +41,14 @@ drawing_mode = "freedraw"
 stroke_width = st.sidebar.slider('Selecciona el ancho de línea', 1, 30, 5)
 #stroke_color = '#FFFFFF' # Set background color to white
 #bg_color = '#000000'
-stroke_color = st.color_picker("color de Trazo", "#000000")
+
 bg_color = '#FFFFFF'
 #realtime_update = st.sidebar.checkbox("Update in realtime", True)
 drawing_mode = st.sidebar.selectbox(
     "Herramienta de dibujo:",
     ("freedraw", "line", "rect", "circle", "transform", "polygon", "point"),
   )
-
+stroke_color = st.color_picker("Color de Trazo", "#000000")
 # Create a canvas component
 canvas_result = st_canvas(
     fill_color="rgba(255, 165, 0, 0.3)",  # Fixed fill color with some opacity
