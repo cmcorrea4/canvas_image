@@ -36,8 +36,8 @@ with st.sidebar:
     stroke_color = st.color_picker("Color de Trazo", "#000000",key="1")
     bg_color = st.color_picker("Color de Fondo", "#FFFFFF",key="2")
     stroke_width = st.sidebar.slider('Selecciona el ancho de línea', 1, 30, 5,key="A")
-    H= st.sidebar.slider('Selecciona la altura del tablero ', 1, 400, 10,key="B")
-    W= st.sidebar.slider('Selecciona el ancho del tablero', 1, 400, 10,key="C")
+    H_= st.sidebar.slider('Selecciona la altura del tablero ', 1, 400, 10,key="B")
+    W_= st.sidebar.slider('Selecciona el ancho del tablero', 1, 400, 10,key="C")
     
 st.subheader("Dibuja el boceto en el panel  y presiona el botón para analizarla")
 
@@ -55,8 +55,8 @@ canvas_result = st_canvas(
     stroke_color=stroke_color,
     background_color=bg_color,
     background_image=Image.open(bg_image) if bg_image else None,
-    height=300,
-    width=400,
+    height=H_,
+    width=W_,
     drawing_mode=drawing_mode,
     key="canvas",
 )
