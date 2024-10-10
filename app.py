@@ -33,10 +33,10 @@ with st.sidebar:
     st.subheader("Acerca de:")
     st.subheader("En esta aplicación veremos la capacidad que ahora tiene una máquina de interpretar un boceto")
     bg_image = st.sidebar.file_uploader("Cargar Imagen:", type=["png", "jpg"])
-    stroke_color = st.color_picker("Color de Trazo", "#000000")
+    stroke_color = st.color_picker("Color de Trazo", "#000000",key="1")
     
     stroke_width = st.sidebar.slider('Selecciona el ancho de línea', 1, 30, 5)
-    bg_color = '#FFFFFF'
+    bg_color = st.color_picker("Color de Fondo", "#FFFFFF",key=2")#'#FFFFFF'
     
 st.subheader("Dibuja el boceto en el panel  y presiona el botón para analizarla")
 
