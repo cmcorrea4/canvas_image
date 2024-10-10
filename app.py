@@ -36,7 +36,7 @@ with st.sidebar:
     stroke_color = st.color_picker("Color de Trazo", "#000000",key="1")
     
     stroke_width = st.sidebar.slider('Selecciona el ancho de línea', 1, 30, 5)
-    bg_color = st.color_picker("Color de Fondo", "#FFFFFF",key=2")#'#FFFFFF'
+    bg_color = st.color_picker("Color de Fondo", "#FFFFFF",key="2")#'#FFFFFF'
     
 st.subheader("Dibuja el boceto en el panel  y presiona el botón para analizarla")
 
