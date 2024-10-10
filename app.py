@@ -33,8 +33,8 @@ with st.sidebar:
     st.subheader("Acerca de:")
     st.subheader("En esta aplicación veremos la capacidad que ahora tiene una máquina de interpretar un boceto")
     bg_image = st.sidebar.file_uploader("Cargar Imagen:", type=["png", "jpg"])
-    stroke_color = st.color_picker("Color de Trazo", "#000000",key="1")
     bg_color = st.color_picker("Color de Fondo", "#FFFFFF",key="2")
+    stroke_color = st.color_picker("Color de Trazo", "#000000",key="1")
     stroke_width = st.sidebar.slider('Selecciona el ancho de línea', 1, 30, 5,key="A")
     #H_= st.sidebar.slider('Selecciona la altura del tablero ', 1, 400, 10,key="B")
     #W_= st.sidebar.slider('Selecciona el ancho del tablero', 1, 400, 10,key="C")
@@ -56,7 +56,7 @@ canvas_result = st_canvas(
     background_color=bg_color,
     background_image=Image.open(bg_image) if bg_image else None,
     height=400,
-    width=350,
+    width=400,
     drawing_mode=drawing_mode,
     key="canvas",
 )
