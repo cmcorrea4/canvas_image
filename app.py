@@ -32,8 +32,9 @@ st.title('Tablero Inteligente')
 with st.sidebar:
     st.subheader("Acerca de:")
     st.subheader("En esta aplicación veremos la capacidad que ahora tiene una máquina de interpretar un boceto")
-    stroke_color = st.color_picker("Color de Trazo", "#000000")
     bg_image = st.sidebar.file_uploader("Cargar Imagen:", type=["png", "jpg"])
+    stroke_color = st.color_picker("Color de Trazo", "#000000")
+    
     stroke_width = st.sidebar.slider('Selecciona el ancho de línea', 1, 30, 5)
     bg_color = '#FFFFFF'
     
