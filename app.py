@@ -25,7 +25,7 @@ def encode_image_to_base64(image_path):
 
 
 # Streamlit 
-st.set_page_config(page_title='Trazos Q'ij Tikal')
+st.set_page_config(page_title='Trazos Qij Tikal')
 #st.title('Tablero Inteligente')
 #image = Image.open('OIG9.jpg')
 #st.image(image, width=350) 
