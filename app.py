@@ -26,12 +26,12 @@ def encode_image_to_base64(image_path):
 
 # Streamlit 
 st.set_page_config(page_title='Trazos Qij Tikal')
-#st.title('Tablero Inteligente')
+st.title('Trazos Qij Tikal')
 #image = Image.open('OIG9.jpg')
 #st.image(image, width=350) 
 with st.sidebar:
     st.subheader("Acerca de:")
-    st.subheader("En esta aplicación veremos la capacidad que ahora tiene una máquina de interpretar un boceto")
+    st.subheader("Reliza trazos y haz parte de la historia de Ruway")
     bg_image = st.sidebar.file_uploader("Cargar Imagen:", type=["png", "jpg"])
     bg_color = st.color_picker("Color de Fondo", "#FFFFFF",key="2")
     stroke_color = st.color_picker("Color de Trazo", "#000000",key="1")
@@ -76,9 +76,9 @@ client = OpenAI(api_key=api_key)
 #if show_details:
     # Text input for additional details about the image, shown only if toggle is True
 additional_details = st.text_area("Adiciona contexto de la imagen aqui:")
-profile_ = st.radio(
-    "Selecciona si quieres alguna experticia",
-    ["Matemáticas", "Historia", "Programación","Mejoramiento de imágenes"],index=None)
+#profile_ = st.radio(
+#    "Selecciona si quieres alguna experticia",
+#    ["Matemáticas", "Historia", "Programación","Mejoramiento de imágenes"],index=None)
 
 profile_Math="""You are an expert in solving mathematical equations and you solve 
                   by showing step by step what you do, always solve the equation on image. 
@@ -95,8 +95,11 @@ profile_Math="""You are an expert in solving mathematical equations and you solv
                   Example :$ \sqrt is output √
                   Example :$ \cdot is ⋅
                 """
-profile_Hist=""" Eres un experto en contar historias infantiles, crea una breve historia a partir de la imagen
-                 , la historia debe ser breve.
+profile_Hist=""" 
+                 The story you generate will have the name that appears in the image and you will write something about the symbol 
+                 that also appears in the image,The story will talk about Q'ij Tikal, a universe where warriors rebel against an order
+                 that oppresses them, a relationship of friendship and companionship with a main character named Ruway and the name
+                 written on the image
                  """ 
 profile_Prog=""" Eres un experto en programación, describe lo que realiza el código que aparece en la imagen y si 
                  el código tiene mala sintaxis o está equivocado corrígelo.
@@ -105,18 +108,19 @@ profile_Prog=""" Eres un experto en programación, describe lo que realiza el c�
 profile_imgenh =""" Do not mention that it is a simple drawing, describe briefly all the objects that appear in the image in spanish
                  """ 
 
-if profile_ == "Matemáticas":
-   Expert= profile_Math  
-if profile_ == "Historia":
-   Expert= profile_Hist
-if profile_ == "Programación":
-   Expert= profile_Prog 
-if profile_ == "Mejoramiento de imágenes":
-   Expert= profile_imgenh      
+#if profile_ == "Matemáticas":
+#   Expert= profile_Math  
+#if profile_ == "Historia":
+#   Expert= profile_Hist
+#if profile_ == "Programación":
+#   Expert= profile_Prog 
+#if profile_ == "Mejoramiento de imágenes":
+#   Expert= profile_imgenh      
 #else :
 #   Expert= " "
 # Button to trigger the analysis
-analyze_button = st.button("Analiza la imagen", type="secondary")
+Expert= profile_Hist
+analyze_button = st.button("Consulta al Oráculo", type="secondary")
 
 # Check if an image has been uploaded, if the API key is available, and if the button has been pressed
 if canvas_result.image_data is not None and api_key and analyze_button:
