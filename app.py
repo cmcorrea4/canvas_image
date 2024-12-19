@@ -186,14 +186,19 @@ if canvas_result.image_data is not None and api_key and analyze_button:
             client = OpenAI(api_key=api_key)
             prompt_text = f"{Expert}, describe en español brevemente la imagen, {additional_details}"
             
-            # Make API request
+            # Make API request with corrected image_url format
             response = client.chat.completions.create(
-                model="gpt-4o-mini",
+                model="gpt-4-vision-preview",
                 messages=[{
                     "role": "user",
                     "content": [
                         {"type": "text", "text": prompt_text},
-                        {"type": "image_url", "image_url": f"data:image/png;base64,{base64_image}"},
+                        {
+                            "type": "image_url",
+                            "image_url": {
+                                "url": f"data:image/png;base64,{base64_image}"
+                            }
+                        }
                     ],
                 }],
                 max_tokens=500,
