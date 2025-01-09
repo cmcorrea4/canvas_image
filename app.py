@@ -159,16 +159,9 @@ profile_Math = """You are expert in math, resolve explain always in SPANISH.
                   Example:$  \frac is output /
                   Example:$ \(x^2 ) is output x²
                   Example :$ \sqrt is output √
-                  Example :$ \cdot is 
+                 Example :$ \cdot is  .
             
-            
-            Requisitos:
-            - Explicar cada paso claramente
-            - Usar LaTeX para todas las expresiones matemáticas
-            - Verificar el resultado final
-            - Mantener formato consistente
-                      
-                 
+                                 
                  """
 
 profile_Hist = """Eres un experto en narración infantil. Crea una historia breve y 
