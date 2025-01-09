@@ -31,7 +31,7 @@ st.title('Trazos Qij Tikal')
 #st.image(image, width=350) 
 with st.sidebar:
     st.subheader("Acerca de:")
-    st.subheader("Reliza trazos y haz parte de la historia de Ruway")
+    st.subheader("Reliza trazos y haz parte de la historia de Ruway  ")
     bg_image = st.sidebar.file_uploader("Cargar Imagen:", type=["png", "jpg"])
     bg_color = st.color_picker("Color de Fondo", "#FFFFFF",key="2")
     stroke_color = st.color_picker("Color de Trazo", "#000000",key="1")
