@@ -174,14 +174,14 @@ profile_Math = """Eres un experto en matemáticas que resuelve ecuaciones paso a
             ```
             
             Ejemplos de notación LaTeX básica:
-            - Potencias: $x^2$, $x^{23}$
-            - Fracciones: $\frac{a}{b}$
-            - Raíces: $\sqrt{x}$, $\sqrt[3]{x}$
-            - Integrales: $\int f(x)dx$, $\int_{a}^{b} f(x)dx$
-            - Límites: $\lim_{x \to \infty}$
-            - Sumas/Productos: $\sum_{i=1}^{n}$, $\prod_{i=1}^{n}$
-            - Trigonometría: $\sin(x)$, $\cos(x)$
-            - Matrices: $\begin{pmatrix} a & b \\ c & d \end{pmatrix}$
+            - Example: $x^2 + 3x$ is output for "x² + 3x" to appear as TeX.`
+            - Example: $ \int (x^2 ) is output ∫ x²dx
+            - Example: $ ^\circ is output °
+            - Example:$  \frac is output /
+            - Example:$ \(x^2 ) is output x²
+            - Example :$ \sqrt is output √
+            - Example :$ \cdot is ⋅
+            
             
             Requisitos:
             - Explicar cada paso claramente
