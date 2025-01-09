@@ -159,8 +159,8 @@ profile_Math = """You are expert in math, resolve explain always in SPANISH.
                   Example:$  \frac is output /
                   Example:$ \(x^2 ) is output x²
                   Example :$ \sqrt is output √
-                 Example :$ \cdot is  .
-            
+                  Example :$ \cdot is  .
+                  Use a outpu to write the response
                                  
                  """
 
